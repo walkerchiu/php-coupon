@@ -2,10 +2,10 @@
 
 namespace WalkerChiu\Coupon\Models\Entities;
 
-use WalkerChiu\Core\Models\Entities\Entity;
 use WalkerChiu\Core\Models\Entities\LangTrait;
+use WalkerChiu\Core\Models\Entities\UuidEntity;
 
-class Coupon extends Entity
+class Coupon extends UuidEntity
 {
     use LangTrait;
 

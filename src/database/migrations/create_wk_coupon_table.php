@@ -9,8 +9,8 @@ class CreateWkCouponTable extends Migration
     public function up()
     {
         Schema::create(config('wk-core.table.coupon.coupons'), function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->nullableMorphs('host');
+            $table->uuid('id');
+            $table->nullableUuidMorphs('host');
             $table->string('serial')->nullable();
             $table->string('identifier');
             $table->string('operator', 10);
@@ -37,9 +37,9 @@ class CreateWkCouponTable extends Migration
         });
         if (!config('wk-coupon.onoff.core-lang_core')) {
             Schema::create(config('wk-core.table.coupon.coupons_lang'), function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->morphs('morph');
-                $table->unsignedBigInteger('user_id')->nullable();
+                $table->uuid('id');
+                $table->uuidMorphs('morph');
+                $table->uuid('user_id')->nullable();
                 $table->string('code');
                 $table->string('key');
                 $table->longText('value')->nullable();

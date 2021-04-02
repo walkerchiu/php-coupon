@@ -26,10 +26,10 @@ class CouponService
     */
 
     /**
-     * @param  Int $coupon_id
+     * @param  String $coupon_id
      * @return Coupon
      */
-    public function find(Int $coupon_id)
+    public function find(String $coupon_id)
     {
         $entity = $this->repository->find($coupon_id);
 
@@ -40,12 +40,12 @@ class CouponService
     }
 
     /**
-     * @param  Coupon|Int $source
+     * @param  Coupon|String $source
      * @return Coupon
      */
     public function findBySource($source)
     {
-        if (is_integer($source))
+        if (is_string($source))
             $entity = $this->find($source);
         elseif (is_a($source, config('wk-core.class.coupon.coupon')))
             $entity = $source;
@@ -66,8 +66,8 @@ class CouponService
     /**
      * Check if it is within the validity period.
      *
-     * @param Coupon|Int $source
-     * @param Carbon     $now
+     * @param Coupon|String $source
+     * @param Carbon        $now
      * @return Array
      */
     public function checkTimeliness($source, Carbon $now)
@@ -130,7 +130,7 @@ class CouponService
     /**
      * Check if it can be used.
      *
-     * @param Coupon|Int $source
+     * @param Coupon|String $source
      * @param Carbon     $now
      * @return Array
      */
