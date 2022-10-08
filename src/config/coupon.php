@@ -27,8 +27,9 @@ return [
     'onoff' => [
         'core-lang_core' => 0,
 
-        'rule'     => 0,
-        'rule-hit' => 0
+        'rule'      => 0,
+        'rule-hit'  => 0,
+        'site-mall' => 0,
     ],
 
     /*
